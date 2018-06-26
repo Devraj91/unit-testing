@@ -13,24 +13,24 @@ describe('AuthService', () => {
   //   expect(service).toBeTruthy();
   // }));
 
-  let service: AuthService;
+  // let service: AuthService;
 
-  beforeEach(()=>{
-    service = new AuthService;
-  });
+  // beforeEach(()=>{
+  //   service = new AuthService;
+  // });
 
-  afterEach(()=>{
-    service = null;
-    localStorage.removeItem('token');
-  });
+  // afterEach(()=>{
+  //   service = null;
+  //   localStorage.removeItem('token');
+  // });
 
-  it('should return true from isauthenticated when there is a token', ()=>{
-    localStorage.setItem('token', '1234');
-    expect(service.isAuthenticated()).toBeTruthy();
-  });
+  // it('should return true from isauthenticated when there is a token', ()=>{
+  //   localStorage.setItem('token', '1234');
+  //   expect(service.isAuthenticated()).toBeTruthy();
+  // });
 
-  it('should return false from isAuthenticated when there is no token', () => {
-    expect(service.isAuthenticated()).toBeFalsy();
-  });
+  // it('should return false from isAuthenticated when there is no token', () => {
+  //   expect(service.isAuthenticated()).toBeFalsy();
+  // });
 
 });

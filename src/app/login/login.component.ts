@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import {AuthService} from "../auth.service";
+
+export class User {
+  constructor(public email: string, public password: string) {
+  }
+}
 
 @Component({
   selector: 'app-login',
@@ -8,15 +13,18 @@ import {AuthService} from "../auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  @Output() loggedIn = new EventEmitter<User>(); 
+  @Input() enabled = true; 
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  login(email, password) { 
+    console.log(`Login ${email} ${password}`);
+    if (email && password) {
+      console.log(`Emitting`);
+      this.loggedIn.emit(new User(email, password));
+    }
   }
-
-  needsLogin() {
-    return !this.auth.isAuthenticated();
-  }
-
   
 
 }
